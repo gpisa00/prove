@@ -8,6 +8,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,6 +31,21 @@ public class Main {
         System.out.println("\nCOMPLETE RESPONSE: " + response);
         System.out.println("\nRESPONSE BODY: " + response.getBody());
         System.out.println("\nRESPONSE DTO: " +responseDTO);
+
+
+        String resourceUrlAll
+                = "https://app-restexample.herokuapp.com/rest/v1/customers";
+
+        ResponseEntity<String> responseAll
+                = restTemplate.getForEntity(resourceUrlAll, String.class);
+
+        List<CustomerDTO> responseAllDTO
+                = Arrays.asList(restTemplate.getForObject(resourceUrlAll, CustomerDTO[].class));
+
+        System.out.println("\nCOMPLETE RESPONSE ALL: " + responseAll);
+        System.out.println("\nRESPONSE BODY ALL: " + responseAll.getBody());
+        System.out.println("\nRESPONSE DTO ALL: " +responseAllDTO);
+
     }
 
 }
