@@ -13,7 +13,7 @@ public class Main {
         RestTemplate restTemplate = new RestTemplate();
 
         String resourceUrl
-                = "https://app-restexample.herokuapp.com/rest/v1/customers/1";
+                = "https://app-restexample.herokuapp.com/rest/customers/1";
 
 
         ResponseEntity<String> response
@@ -28,7 +28,7 @@ public class Main {
 
 
         String resourceUrlAll
-                = "https://app-restexample.herokuapp.com/rest/v1/customers";
+                = "https://app-restexample.herokuapp.com/rest/customers";
 
         ResponseEntity<String> responseAll
                 = restTemplate.getForEntity(resourceUrlAll, String.class);
